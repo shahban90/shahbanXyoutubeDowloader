@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR. SHAHBAN ALI - Hacker Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .terminal-header {
+            background-color: #111;
+            border-bottom: 2px solid #ff0033;
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff0033;
+            text-shadow: 0 0 10px #ff0033;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(0, 20, 0, 0.8);
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+            border-radius: 8px;
+        }
+        .matrix-text {
+            color: #00ff66;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ff66;
+        }
+        .input-box, .select-box {
+            width: 90%;
+            padding: 12px;
+            background: #000;
+            border: 2px solid #00ff66;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            outline: none;
+            box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+        .select-box {
+            cursor: pointer;
+        }
+        .input-box::placeholder {
+            color: #007722;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .hacker-btn {
+            background-color: #000;
+            color: #ff0033;
+            border: 2px solid #ff0033;
+            padding: 10px 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 0, 51, 0.4);
+            transition: 0.3s;
+        }
+        .hacker-btn:hover {
+            background-color: #ff0033;
+            color: #000;
+            box-shadow: 0 0 20px #ff0033;
+        }
+        .btn-green {
+            color: #00ff66;
+            border-color: #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+        }
+        .btn-green:hover {
+            background-color: #00ff66;
+            color: #000;
+            box-shadow: 0 0 20px #00ff66;
+        }
+        #output-screen {
+            margin-top: 25px;
+            padding: 15px;
+            background: #000;
+            border: 1px dashed #ff0033;
+            color: #ff0033;
+            display: none;
+            text-align: left;
+            font-size: 0.95em;
+            border-radius: 4px;
+        }
+        .footer-sig {
+            margin-top: 30px;
+            color: #555;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-header">
+        > MR. SHAHBAN ALI // SECURE TERMINAL <
+    </div>
+
+    <div class="container">
+        <div class="matrix-text">
+            [SYSTEM READY] Enter YouTube Target Link:
+        </div>
+
+        <!-- YouTube Link Input -->
+        <input type="text" id="yt-link" class="input-box" placeholder="https://www.youtube.com/watch?v=...">
+
+        <!-- Quality Selector for Video -->
+        <div class="matrix-text" style="font-size: 0.95em; margin-bottom: 5px;">Select Video Quality (HD Options):</div>
+        <select id="video-quality" class="select-box">
+            <option value="1080p">MP4 - 1080p (Full HD)</option>
+            <option value="720p">MP4 - 720p (HD)</option>
+            <option value="480p">MP4 - 480p (Medium)</option>
+            <option value="360p">MP4 - 360p (Low)</option>
+            <option value="mp3">Audio Only (MP3 High Quality)</option>
+        </select>
+
+        <div class="btn-group">
+            <button class="hacker-btn btn-green" onclick="startProcess()">START EXTRACTION</button>
+        </div>
+
+        <!-- Output Log Screen -->
+        <div id="output-screen">
+            <span id="log-text">Initializing sequence...</span>
+        </div>
+    </div>
+
+    <div class="footer-sig">
+        SECURE GATEWAY v2.8 // DESIGNED FOR M. SHAHBAN ALI
+    </div>
+
+    <script>
+        function startProcess() {
+            var link = document.getElementById("yt-link").value;
+            var quality = document.getElementById("video-quality").value;
+            var output = document.getElementById("output-screen");
+            var log = document.getElementById("log-text");
+
+            if(link.trim() === "") {
+                output.style.display = "block";
+                log.style.color = "#ff0033";
+                log.innerHTML = "[ERROR] Target link missing! Pehle YouTube ka link paste karo.";
+                return;
+            }
+
+            output.style.display = "block";
+            log.style.color = "#00ff66";
+            log.innerHTML = "[+] Connecting to secure server...<br>[+] Target: " + link + "<br>[+] Selected Format/Quality: " + quality.toUpperCase() + "<br>[+] Bypassing firewall & fetching stream...";
+            
+            setTimeout(function() {
+                log.innerHTML += "<br>[SUCCESS] Stream locked! Ready for high-speed download.";
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
